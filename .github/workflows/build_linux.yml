@@ -21,7 +21,7 @@ jobs:
       matrix:
         go: [1.18.x]
         os: [ubuntu-latest]
-    runs-on: ${{ matrix.os}}
+    runs-on: ${{ matrix.os }}
     steps:
       - name: install golang
         uses: actions/setup-go@v2
