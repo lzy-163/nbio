@@ -30,6 +30,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: go env
+        id: go-env
         run: |
           printf "$(go version)\n"
           printf "\n\ngo environment:\n\n"
