@@ -29,7 +29,10 @@ jobs:
           go-version: ${{ matrix.go }}
       - name: checkout
         uses: actions/checkout@v2
+        with:
+          path: src/github.com/lesismal/nbio
       - name: go env
+        working-directory: src/github.com/lesismal/nbio
         run: |
           printf "$(go version)\n"
           printf "\n\ngo environment:\n\n"
@@ -38,4 +41,5 @@ jobs:
           go env
           echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: go test
+        working-directory: src/github.com/lesismal/nbio
         run: go test -covermode=atomic -timeout 60s -coverprofile="./coverage"
